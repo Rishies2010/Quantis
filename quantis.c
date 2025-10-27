@@ -775,22 +775,22 @@ int main(int argc, char *argv[]) {
             printf("\n" FG_CYAN "Quantis " COL_RESET "version " _VER "\n\n");
             
             struct passwd *pw = getpwuid(getuid());
-            printf("Usage: Quantis [OPTIONS]\n\n");
-            printf("Options:\n");
+            printf("Usage  Quantis [OPTIONS]\n\n");
+            printf("Options \n");
             printf("  --help, -h      Show this help message\n");
             printf("  --version, -v   Show version information\n\n");
-            printf("User: %s\n", pw ? pw->pw_name : "unknown");
-            printf("UID: %d\n\n", getuid());
+            printf("User  %s\n", pw ? pw->pw_name : "unknown");
+            printf("UID  %d\n\n", getuid());
             
             return 0;
         } else if (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0) {
             printf(FG_CYAN "Quantis" COL_RESET "\n");
-            printf("Version: %s\n\n", _VER);
-            printf("Usage: Quantis [OPTIONS]\n\n");
-            printf("Options:\n");
+            printf("Version  %s\n\n", _VER);
+            printf("Usage  Quantis [OPTIONS]\n\n");
+            printf("Options \n");
             printf("  --help, -h      Show this help message\n");
             printf("  --version, -v   Show version information\n\n");
-            printf("Builtin commands:\n");
+            printf("Builtin commands \n");
             printf("  cd              Change directory\n");
             printf("  exit            Exit the shell\n");
             printf("  clear           Clear the screen\n");

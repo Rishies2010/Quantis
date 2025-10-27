@@ -100,15 +100,15 @@ char *build_prompt()
         strcpy(cwd, "?");
 
     snprintf(buf, sizeof(buf),
-             BG_BLACK FG_PURPLE "" COL_RESET
-                 BG_PURPLE FG_BLACK " %s " COL_RESET
-                     BG_BLACK FG_PURPLE "" COL_RESET
-                                " ~\n"
-                                "  " BG_BLACK FG_CYAN "" COL_RESET
-                                    BG_CYAN FG_BLACK " %s " COL_RESET
-                                        BG_BLACK FG_CYAN "" COL_RESET
-                                "  ",
-             user, cwd);
+            "\n" BG_BLACK FG_PURPLE "" COL_RESET
+                BG_PURPLE FG_BLACK " %s " COL_RESET
+                    BG_BLACK FG_PURPLE "" COL_RESET
+                            " ~\n"
+                            "  " BG_BLACK FG_CYAN "" COL_RESET
+                                BG_CYAN FG_BLACK " %s " COL_RESET
+                                    BG_BLACK FG_CYAN "" COL_RESET
+                            "  ",
+            user, cwd);
     return strdup(buf);
 }
 

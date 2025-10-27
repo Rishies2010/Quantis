@@ -509,7 +509,7 @@ void save_aliases(const char *rc_file) {
     FILE *f = fopen(rc_file, "w");
     if (!f) return;
     
-    fprintf(f, "# .qnrc\n# Quantis RC file\n\n# This file is used for storing created aliases.\n# It is not recommended to manually change the contents of this file.\n\n# Use the builtin alias and unalias commands to modify your aliases.\n\n");
+    fprintf(f, "# .qnrc\n# Quantis RC file\n\n# This file is used for storing created aliases.\n# It is not recommended to manually change the contents of this file.\n\n# Use the builtin alias and unalias commands to modify your aliases.\n\n");
     for (int i = 0; i < alias_count; i++) {
         fprintf(f, "alias %s:{%s}\n", aliases[i].name, aliases[i].value);
     }
@@ -894,6 +894,6 @@ int main(int argc, char *argv[]) {
     free(rc);
     free(hist);
     free(prog_dir);
-    printf("\n  Exiting Quantis...\n\n");
+    printf("\n Exiting Quantis...\n\n");
     return 0;
 }

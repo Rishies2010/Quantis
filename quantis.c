@@ -475,7 +475,19 @@ void add_alias(const char *name, const char *value) {
         fprintf(stderr, " Quantis: Too many aliases.\n");
         return;
     }
-    
+    if (strcmp(name, "alias") == 0){
+        fprintf(stderr, " Quantis: Cannot make an alias for alias.\n");
+        return;
+    }
+    else if (strcmp(name, "unalias") == 0){
+        fprintf(stderr, " Quantis: Cannot make an alias for unalias.\n");
+        return;
+    }
+    else if (strcmp(name, "cd") == 0){
+        fprintf(stderr, " Quantis: Cannot make an alias for cd.\n");
+        return;
+    }
+
     char *value_copy = strdup(value);
     
     for (int i = 0; i < alias_count; i++) {

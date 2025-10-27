@@ -641,9 +641,9 @@ int handle_builtin(char **argv, char *rc_file, char *hist_file) {
     }
     if (!strcmp(argv[0], "help")) {
         printf("\nWelcome to " FG_CYAN "Quantis" COL_RESET ".\n");
-        printf("Version: %s\n\n", _VER);
-        printf("Usage: Quantis [OPTIONS]\n\n");
-        printf("Options:\n");
+        printf("Version  %s\n\n", _VER);
+        printf("Usage  Quantis [OPTIONS]\n\n");
+        printf("Options \n");
         printf("  --help, -h      Show this help message\n");
         printf("  --version, -v   Show version information\n\n");
         printf("Builtin commands:\n");

@@ -32,6 +32,10 @@ relibc:
 # --- 默认目标 ---
 all: clean relibc $(FULL_TARGET) install
 
+run: all
+	cd ..
+	cargo run
+
 $(BUILD_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
 	@echo "Compiling $<..."
@@ -75,4 +79,4 @@ install: $(FULL_TARGET)
 	     echo "\033[0;32m[SUCCESS]\033[0m: Installation verified."; \
 	 fi
 
-.PHONY: all clean install
+.PHONY: all clean install run

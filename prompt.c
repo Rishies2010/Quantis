@@ -9,15 +9,12 @@ char *build_prompt(void) {
         strcpy(cwd, "?");
 
     snprintf(buf, sizeof(buf),
-             "\n" BG_BLACK FG_PURPLE "" COL_RESET
-                 BG_PURPLE FG_BLACK " %s " COL_RESET
-                     BG_BLACK FG_PURPLE "" COL_RESET
-                             " ~\n"
+             "\n" 
                              "  " BG_BLACK FG_CYAN "" COL_RESET
                                  BG_CYAN FG_BLACK " %s " COL_RESET
                                      BG_BLACK FG_CYAN "" COL_RESET
-                             "  ",
-             user, cwd);
+                             " > ",
+             cwd);
     return strdup(buf);
 }
 

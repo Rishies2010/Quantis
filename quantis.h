@@ -14,6 +14,7 @@
 #include <sys/wait.h>
 #include <dirent.h>
 #include <sys/stat.h>
+#include <limits.h>
 
 #define MAX_ARGS 128
 #define PROMPT_BUF 512
@@ -93,4 +94,3 @@ void print_unknown_option(const char *opt);
 int quantis_main(int argc, char *argv[]);
 
 #endif
-

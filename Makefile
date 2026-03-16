@@ -12,7 +12,7 @@ CC      = clang
 LD      = ld.lld
 CLANG_TARGET = x86_64-unknown-none-elf
 CFLAGS  = --target=$(CLANG_TARGET) \
-	  -ffreestanding -mno-sse -D__linux__ -mno-red-zone \
+	  -ffreestanding -mno-sse -D__seele__ -mno-red-zone \
           -fno-stack-protector -fno-builtin -fno-pie -no-pie \
           -nostdinc -I$(RELIBC_INCLUDE)
 LDFLAGS = -static -nostdlib --allow-multiple-definition

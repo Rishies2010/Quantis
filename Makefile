@@ -1,6 +1,7 @@
 # --- 路径配置（与 Manuae-Shell 保持一致） ---
-RELIBC_PATH    = ../relibc-seele/target/x86_64-seele/release
-RELIBC_INCLUDE = ../relibc-seele/target/x86_64-seele/include
+RELIBC_ROOT    = ../relibc-seele
+RELIBC_PATH    = $(RELIBC_ROOT)/target/x86_64-seele/release
+RELIBC_INCLUDE = $(RELIBC_ROOT)/target/x86_64-seele/include
 BUILD_DIR      = build
 TARGET         = quantis
 FULL_TARGET    = $(BUILD_DIR)/$(TARGET)
@@ -22,8 +23,14 @@ EXCLUDED_FILES =
 C_SRCS        = $(filter-out $(EXCLUDED_FILES), $(ALL_C_SRCS))
 OBJS          = $(addprefix $(BUILD_DIR)/, $(C_SRCS:.c=.o))
 
+# --- 构建依赖的 relibc（x86_64-seele, release） ---
+.PHONY: relibc
+relibc:
+	@echo "Building relibc-seele (x86_64-seele, release)..."
+	@$(MAKE) -C $(RELIBC_ROOT) PROFILE=release TARGET=x86_64-seele all
+
 # --- 默认目标 ---
-all: clean $(FULL_TARGET) install
+all: clean relibc $(FULL_TARGET) install
 
 $(BUILD_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)

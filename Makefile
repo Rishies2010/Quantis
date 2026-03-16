@@ -8,11 +8,9 @@ SYSROOT        = "../sysroot"
 TARGET_DIR     = $(SYSROOT)/programs
 
 # --- 编译器与参数设置 ---
-CC      = clang
-LD      = ld.lld
-CLANG_TARGET = x86_64-unknown-none-elf
-CFLAGS  = --target=$(CLANG_TARGET) \
-	  -ffreestanding -mno-sse -D__seele__ -mno-red-zone \
+CC      = x86_64-elf-gcc
+LD      = x86_64-elf-ld
+CFLAGS  = -ffreestanding -mno-sse -D__seele__ -mno-red-zone \
           -fno-stack-protector -fno-builtin -fno-pie -no-pie \
           -nostdinc -I$(RELIBC_INCLUDE)
 LDFLAGS = -static -nostdlib --allow-multiple-definition

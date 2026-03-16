@@ -27,7 +27,7 @@ OBJS          = $(addprefix $(BUILD_DIR)/, $(C_SRCS:.c=.o))
 .PHONY: relibc
 relibc:
 	@echo "Building relibc-seele (x86_64-seele, release)..."
-	@$(MAKE) -C $(RELIBC_ROOT) PROFILE=release TARGET=x86_64-seele all
+	@$(MAKE) -C $(RELIBC_ROOT) all
 
 # --- 默认目标 ---
 all: clean relibc $(FULL_TARGET) install

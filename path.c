@@ -1,8 +1,13 @@
 #include "quantis.h"
 
 char *expand_tilde(const char *path) {
-    if (path[0] != '~')
+    if (!path) {
+        /* Fallback when no path/HOME is available. */
+        return strdup(".");
+    }
+    if (path[0] != '~') {
         return strdup(path);
+    }
 
     const char *home = getenv("HOME");
     if (!home) {
@@ -37,4 +42,3 @@ char *get_program_directory(void) {
     }
     return strdup(path);
 }
-

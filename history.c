@@ -48,7 +48,10 @@ void load_history(const char *hist_file) {
 void save_history(const char *hist_file) {
     FILE *f = fopen(hist_file, "w");
     if (!f) {
-        perror(" Quantis: Error while attempting to save history.\n");
+        /* On some targets (like your own OS), the filesystem or
+         * directory used for history may not be writable or may not
+         * exist. In that case we simply skip saving history instead
+         * of treating it as a runtime error. */
         return;
     }
     for (int i = 0; i < history_count; i++) {
@@ -56,4 +59,3 @@ void save_history(const char *hist_file) {
     }
     fclose(f);
 }
-

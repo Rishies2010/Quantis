@@ -1,4 +1,5 @@
 #include "quantis.h"
+#include <stdio.h>
 
 int run_shell(void) {
     set_raw_mode();
@@ -36,10 +37,9 @@ int run_shell(void) {
         printf("%s", prompt);
         fflush(stdout);
 
-        int prompt_len =
-            8 + (int)strlen(getpwuid(getuid())->pw_name) +
-            (int)strlen(getcwd(NULL, 0));
-        input = read_command_line(prompt_len);
+        /* Do not rely on getpwuid/getcwd for prompt length; the
+         * argument is currently ignored by read_command_line. */
+        input = read_command_line(0);
 
         free(prompt);
 
@@ -96,4 +96,3 @@ int run_shell(void) {
     printf("\n Exiting Quantis...\n\n");
     return 0;
 }
-

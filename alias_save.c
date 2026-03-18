@@ -2,7 +2,11 @@
 
 void save_aliases(const char *rc_file) {
     FILE *f = fopen(rc_file, "w");
-    if (!f) return;
+    if (!f) {
+        /* Same reasoning as history: if the config file cannot be
+         * created (e.g. read-only FS), just skip saving aliases. */
+        return;
+    }
 
     fprintf(f,
             "# .qnrc\n"
@@ -16,4 +20,3 @@ void save_aliases(const char *rc_file) {
     }
     fclose(f);
 }
-
